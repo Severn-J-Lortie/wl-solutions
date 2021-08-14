@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <navbar></navbar>
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from '../src/components/Navbar.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Navbar
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* Force icons to fill parent container */
+svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+svg.half-width {
+  width: 50% !important;
+  height: 50% !important;
+}
+
+/* Removes negative margin left and right on columns element on mobile*/
+@media (max-width: 768px) {
+  .columns {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
 }
 </style>
