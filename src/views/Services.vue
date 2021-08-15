@@ -5,7 +5,7 @@
 
     <div class="columns is-centered">
       <div class="column">
-        <service-card>
+        <service-card serviceName="Frontend">
           <template v-slot:service-title> Frontend </template>
           <template v-slot:service-price> $30/hr </template>
           <template v-slot:service-list>
@@ -16,7 +16,7 @@
         </service-card>
       </div>
       <div class="column">
-        <service-card>
+        <service-card serviceName="Backend">
           <template v-slot:service-title> Backend </template>
           <template v-slot:service-price> $40/hr </template>
           <template v-slot:service-list>
@@ -30,7 +30,7 @@
         </service-card>
       </div>
       <div class="column">
-        <service-card>
+        <service-card serviceName="Systems">
           <template v-slot:service-title> Systems </template>
           <template v-slot:service-price> $38/hr </template>
           <template v-slot:service-list>

@@ -42,7 +42,8 @@
           <label class="label">Service</label>
           <div class="control">
             <div class="select">
-              <select>
+              <select v-model="form" >
+                <option value="" disabled selected>Select a service</option>
                 <option>Frontend</option>
                 <option>Backend</option>
                 <option>Systems</option>
@@ -75,11 +76,27 @@
 </template>
 
 <script>
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+
 import PageMargin from "../components/PageMargin.vue";
 export default {
   components: {
     PageMargin,
   },
+
+  setup() {
+
+    const store = useStore();
+
+    return {
+      form: computed({
+        get: () => store.state.form.serviceDropdown,
+        set: (value) => store.commit('setServiceDropdown', value)
+      })
+    }
+  }
+
 };
 </script>
 

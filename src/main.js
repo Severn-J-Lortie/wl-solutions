@@ -20,6 +20,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import store from './store'
 
 library.add(faHandshake);
 library.add(faCalendarCheck);
@@ -35,7 +36,7 @@ library.add(faWindowClose);
 // Import bulma css
 require('./assets/lib/bulma.css')
 
-createApp(App)
+createApp(App).use(store)
 .component("font-awesome-icon", FontAwesomeIcon)
 .use(router)
 .mount('#app')
