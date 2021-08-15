@@ -18,7 +18,7 @@
             <input
               class="input"
               type="text"
-              placeholder="Text input"
+              placeholder="Enter your name"
               v-model="nameField"
             />
           </div>
@@ -33,7 +33,7 @@
             <input
               class="input is-danger"
               type="email"
-              placeholder="Email input"
+              placeholder="Enter your email"
               v-model="emailField"
             />
             <span class="icon is-small is-left">
@@ -79,7 +79,16 @@
         </div>
 
         <div class="field">
-          <label class="label">Project description</label>
+          <label class="label mb-0">Project description</label>
+          <div>Let us know about the project. Information about the following is helpful:</div>
+          <div class="content">
+            <ul>
+              <li>Brief description of the project</li>
+              <li>Scope</li>
+              <li>How we can help, i.e. what's our role</li>
+              <li>Technologies involved</li>
+            </ul>
+          </div>
           <div class="control">
             <textarea
               class="textarea"
@@ -87,6 +96,7 @@
               v-model="descriptionTextarea"
             ></textarea>
           </div>
+          <p :class="{'has-text-danger': !formInputValidations.descriptionTextarea}">Characters remaining: {{descriptionMaxCharacters - descriptionTextarea.length}}</p>
         </div>
 
         <div class="field is-grouped">
@@ -118,6 +128,9 @@ export default {
   setup() {
     const store = useStore();
     const router = useRouter();
+
+    // Description max characters
+    const descriptionMaxCharacters = 20;
 
     // State to keep track of which inputs are valid
     const formInputValidations = reactive({
@@ -153,6 +166,11 @@ export default {
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (store.state.form.emailField.match(regex) == null) {
         formInputValidations.emailField = false;
+      }
+
+      // Validate the description textarea
+      if (store.state.form.descriptionTextarea.length > descriptionMaxCharacters) {
+        formInputValidations.descriptionTextarea = false;
       }
 
       // Check to see if all fields still valid
@@ -202,6 +220,7 @@ export default {
         set: (value) => store.commit("setDescriptionTextarea", value),
       }),
       submit,
+      descriptionMaxCharacters,
       clearFormData: () => store.commit("clearFormData"),
       formInputValidations,
     };

@@ -49,7 +49,7 @@
           </nav>
 
 
-          <sol-button class="is-primary mt-2">Choose a service</sol-button>
+          <router-link to="/services" class="button is-primary mt-2">Choose a service</router-link>
 
         </div>
       </div>
@@ -59,12 +59,10 @@
 
 <script>
 import Card from "../Card";
-import SolButton from "../SolButton";
 
 export default {
   components: {
-    Card,
-    SolButton
+    Card
   },
 };
 </script>
