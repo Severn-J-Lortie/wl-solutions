@@ -3,7 +3,7 @@
     <div
       class="
         column
-        is-8-widescreen is-8-desktop is-8-fullhd is-10-tablet
+        is-8-widescreen is-10-desktop is-8-fullhd is-11-tablet
         has-max-width
       "
     >

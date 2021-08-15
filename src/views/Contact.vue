@@ -1,8 +1,8 @@
 <template>
   <page-margin>
     <div class="columns mt-5">
-      <div class="column is-3">
-        <div class="title is-1 has-text-weight-bold">Request details</div>
+      <div class="column is-3 background-blob">
+        <div class="title is-size-1-desktop is-size-2-tablet has-text-weight-bold">Request details</div>
         <div class="has-text-weight-bold">Give us some information about your project</div>
       </div>
       <div class="column is-8 is-offset-1">
@@ -157,8 +157,9 @@ export default {
   .background-blob {
     background-image: url('../assets/img/blob 2.svg');
     background-repeat: no-repeat;
-    background-position: 10% 10%;
-    background-size: 30%;
+    background-position-y: 0%;
+    background-position-x: 50%;
+    background-size: 110%;
   }
 }
 

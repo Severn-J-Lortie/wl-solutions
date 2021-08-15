@@ -61,9 +61,12 @@ export default {
 .content ul {
   margin-left: 1.5rem;
 }
-.background-blob {
-  background-image: url('../assets/img/blob.svg');
-  background-repeat: no-repeat;
-  background-position: right;
+@media (min-width: 768px) {
+  .background-blob {
+    background-image: url('../assets/img/blob.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+  } 
 }
+
 </style>

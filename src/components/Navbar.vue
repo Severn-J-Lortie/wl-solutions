@@ -25,9 +25,6 @@
           <span aria-hidden="true"></span>
         </a>
 
-        
-
-
       </div>
 
       <div id="navbarBasicExample" class="navbar-menu">
