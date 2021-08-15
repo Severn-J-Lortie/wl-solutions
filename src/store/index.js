@@ -17,6 +17,11 @@ export default createStore({
     },
     setNameField(state, value) {
       state.form.nameField = value;
+    },
+    clearFormData(state) {
+      state.form.serviceDropdown = '';
+      state.form.nameField = '';
+      state.form.emailField = '';
     }
   },
   actions: {

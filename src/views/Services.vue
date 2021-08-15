@@ -1,6 +1,5 @@
 <template>
   <page-margin class="background-blob">
-
     <div class="title is-size-1 has-text-weight-bold mt-5">Our pricing</div>
 
     <div class="columns is-centered">

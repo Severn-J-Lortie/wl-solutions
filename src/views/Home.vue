@@ -4,6 +4,7 @@
       <pitch-card></pitch-card>
       <team-card class="mt-6"></team-card>
       <portfolio-card class="mt-6"></portfolio-card>
+      <hello-world v-for="i in 5" :key="i"></hello-world>
   </page-margin>
 </template>
 
@@ -13,6 +14,7 @@ import Hero from "../components/Home/Hero.vue";
 import PitchCard from "../components/Home/PitchCard.vue";
 import TeamCard from "../components/Home/TeamCard.vue";
 import PortfolioCard from "../components/Home/PortfolioCard.vue"
+import HelloWorld from "../components/HelloWorld.vue"
 
 export default {
   components: {
@@ -20,7 +22,8 @@ export default {
     Hero,
     PitchCard,
     TeamCard,
-    PortfolioCard
+    PortfolioCard,
+    HelloWorld
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <page-margin class="background-blob">
+  <page-margin>
     <div class="columns mt-5">
       <div class="column is-3">
         <div class="title is-1 has-text-weight-bold">Request details</div>
@@ -69,7 +69,7 @@
             <button class="button is-link" @click="validate">Submit</button>
           </div>
           <div class="control">
-            <button class="button is-link is-light">Cancel</button>
+            <button class="button is-link is-light" @click="clearFormData">Clear</button>
           </div>
         </div>
       </div>
@@ -127,7 +127,6 @@ export default {
 
     }
 
-
     return {
       serviceDropdown: computed({
         get: () => store.state.form.serviceDropdown,
@@ -142,6 +141,7 @@ export default {
         set: (value) => store.commit('setNameField', value)
       }),
       validate,
+      clearFormData: () => store.commit('clearFormData'),
       formInputValidations
     }
   }
@@ -150,10 +150,17 @@ export default {
 </script>
 
 <style scoped>
-.background-blob {
-  background-image: url('../assets/img/blob 2.svg');
-  background-repeat: no-repeat;
-  background-position: 10% 10%;
-  background-size: 30%
+
+/* Hide the background blob on mobile */
+@media (min-width: 768px) {
+  /* Background blob styles */
+  .background-blob {
+    background-image: url('../assets/img/blob 2.svg');
+    background-repeat: no-repeat;
+    background-position: 10% 10%;
+    background-size: 30%;
+  }
 }
+
+
 </style>

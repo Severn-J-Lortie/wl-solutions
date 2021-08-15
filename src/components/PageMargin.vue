@@ -17,4 +17,7 @@ export default {};
 </script>
 
 <style scoped>
+.has-max-width {
+  max-width: 1000px; 
+}
 </style>

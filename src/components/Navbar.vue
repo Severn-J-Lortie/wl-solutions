@@ -10,6 +10,7 @@
           />
         </router-link>
 
+        <!-- React to clicks here -->
         <a
           role="button"
           class="navbar-burger"
@@ -17,10 +18,16 @@
           aria-expanded="false"
           data-target="navbarBasicExample"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true">  
+          </span>
+          <span aria-hidden="true">
+          </span>
           <span aria-hidden="true"></span>
         </a>
+
+        
+
+
       </div>
 
       <div id="navbarBasicExample" class="navbar-menu">
