@@ -130,7 +130,7 @@ export default {
     const router = useRouter();
 
     // Description max characters
-    const descriptionMaxCharacters = 20;
+    const descriptionMaxCharacters = 1000;
 
     // State to keep track of which inputs are valid
     const formInputValidations = reactive({
