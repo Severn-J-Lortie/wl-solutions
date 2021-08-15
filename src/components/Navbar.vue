@@ -2,13 +2,13 @@
   <div class="container">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <router-link to="/" class="navbar-item">
           <img
             src="../assets/img/logo.png"
             width="150"
             height="150"
           />
-        </a>
+        </router-link>
 
         <a
           role="button"
