@@ -23,6 +23,11 @@ const routes = [
     path: '/success',
     name: 'Success',
     component: () => import('../views/SuccessMessage.vue')
+  }, 
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../views/Admin.vue')
   }
 ]
 

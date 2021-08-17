@@ -27,7 +27,13 @@ export default createStore({
       state.form.emailField = '';
       state.form.descriptionTextarea = '';
     },
-    addProject(state, project) {
+    addProject(state) {
+      // Copy the current form data in to a new object and push to projects array
+      const project = {};
+      project.service = state.form.serviceDropdown;
+      project.name = state.form.nameField;
+      project.email = state.form.emailField;
+      project.description = state.form.descriptionTextarea;
       state.projects.push(project);
     },
     setDescriptionTextarea(state, value) {

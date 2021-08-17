@@ -3,11 +3,11 @@
     <div class="columns mt-5">
       <div class="column is-3 background-blob">
         <div
-          class="title is-size-1-desktop is-size-2-tablet has-text-weight-bold"
+          class="title is-size-1-desktop mb-2 is-size-2-tablet has-text-weight-bold"
         >
           Request details
         </div>
-        <div class="has-text-weight-bold">
+        <div>
           Give us some information about your project
         </div>
       </div>
@@ -189,7 +189,7 @@ export default {
 
       if (formInputValidations.formIsValid) {
         // Commit to state
-        store.commit("addProject", store.state.form);
+        store.commit("addProject");
 
         // Clear the form
         store.commit("clearFormData");
@@ -198,7 +198,7 @@ export default {
         store.commit('setHasSubmittedForm', true);
 
         // Redirect to success message
-        router.push('/success');
+        router.push('/admin');
       }
     };
 
