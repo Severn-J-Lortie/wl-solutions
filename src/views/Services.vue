@@ -78,6 +78,7 @@ export default {
   position: absolute;
   top: -25%;
   right: -30%;
+  
 }
 @media (min-width: 768px) {
   .background-blob {
