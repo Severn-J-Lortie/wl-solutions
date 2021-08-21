@@ -188,8 +188,9 @@ export default {
       validate();
 
       if (formInputValidations.formIsValid) {
-        // Commit to state
-        store.commit("addProject");
+        
+        // Add to state and firebase
+        store.dispatch('createProject');
 
         // Clear the form
         store.commit("clearFormData");
@@ -198,7 +199,7 @@ export default {
         store.commit('setHasSubmittedForm', true);
 
         // Redirect to success message
-        router.push('/admin');
+        router.push('/success');
       }
     };
 

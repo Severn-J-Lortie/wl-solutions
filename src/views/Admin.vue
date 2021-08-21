@@ -6,7 +6,7 @@
         <div>Here are the latest submissions from clients</div>
       </div>
       <div class="column is-6-tablet is-7-desktop is-5-widescreen is-6-fullhd">
-        <div class="column" v-for="(project, i) in reversedProjectsArray" :key="i">
+        <div class="column" v-for="(project, i) in projects" :key="i">
           <project-card v :project="project"></project-card>
         </div>
       </div>
@@ -29,16 +29,8 @@ export default {
   setup() {
     const store = useStore();
 
-    // Reverse order projects array TODO: change this when firebase added
-    const reversedProjectsArray = computed(() => {
-      const reversedArray = [...store.state.projects];
-      reversedArray.reverse();
-      return reversedArray;
-    });
-
     return {
-      projects: computed(() => store.state.projects),
-      reversedProjectsArray
+      projects: computed(() => store.state.projects)
     }
   }
 };
