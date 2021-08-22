@@ -6,7 +6,13 @@
           <div class="level-item">
             <div>
               <p class="is-size-4 has-text-weight-bold">{{ project.name }}</p>
-              <p class="subtitle is-6">{{ project.email }}</p>
+              <p class="subtitle is-6">
+                <a
+                  class="has-text-grey-dark"
+                  :href="`mailto:${project.email}`"
+                  >{{ project.email }}</a
+                >
+              </p>
             </div>
           </div>
         </div>
@@ -14,7 +20,11 @@
           <div class="level-item">
             <div class="tags has-addons">
               <span class="tag">Service</span>
-              <span class="tag is-info">{{ project.service }}</span>
+              <span
+                class="tag"
+                :class="project.accepted ? 'is-link' : 'is-primary'"
+                >{{ project.service }}</span
+              >
             </div>
           </div>
         </div>
@@ -23,26 +33,31 @@
     </div>
     <footer class="card-footer">
       <a class="card-footer-item" @click="deleteProject">Delete</a>
-      <a class="card-footer-item" :class="{ 'has-text-white has-background-primary': project.accepted }" @click="accept">{{
-        project.accepted ? "Accepted" : "Accept"
-      }}</a>
-      <a class="card-footer-item" v-if="descriptionIsShortended" @click="isExpanded = !isExpanded">{{
-        isExpanded ? "Collapse" : "Expand"
-      }}</a>
+      <a
+        class="card-footer-item"
+        :class="{ 'has-text-white has-background-primary': project.accepted }"
+        @click="accept"
+        >{{ project.accepted ? "Accepted" : "Accept" }}</a
+      >
+      <a
+        class="card-footer-item"
+        v-if="descriptionIsShortended"
+        @click="isExpanded = !isExpanded"
+        >{{ isExpanded ? "Collapse" : "Expand" }}</a
+      >
     </footer>
   </div>
 </template>
 
 <script>
 import { computed, ref } from "vue";
-import { useStore } from 'vuex'
+import { useStore } from "vuex";
 
 export default {
   props: {
     project: Object,
   },
   setup(props) {
-
     const store = useStore();
 
     // Keeps track of whether the card has been expanded
@@ -50,7 +65,9 @@ export default {
 
     // Indicated whether the description is being clamped
     const maxTextCharacters = 200;
-    let descriptionIsShortended = ref(props.project.description.length > maxTextCharacters);
+    let descriptionIsShortended = ref(
+      props.project.description.length > maxTextCharacters
+    );
 
     // Returns either a shortended version of the text or the full text
     // depending on isExpanded
@@ -68,21 +85,23 @@ export default {
     });
 
     const accept = () => {
-
       // Toggle project's the accepted status in firestore and the store
-      store.dispatch('updateProjectAcceptedStatus', {id: props.project.id, status: !props.project.accepted});
-    }
+      store.dispatch("updateProjectAcceptedStatus", {
+        id: props.project.id,
+        status: !props.project.accepted,
+      });
+    };
 
     const deleteProject = () => {
-      store.dispatch('deleteProject', props.project.id);
-    }
+      store.dispatch("deleteProject", props.project.id);
+    };
 
     return {
       description,
       descriptionIsShortended,
       isExpanded,
       accept,
-      deleteProject
+      deleteProject,
     };
   },
 };
