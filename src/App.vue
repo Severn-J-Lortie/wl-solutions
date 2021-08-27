@@ -5,11 +5,19 @@
 
 <script>
 import Navbar from '../src/components/Navbar.vue'
+import { useStore } from 'vuex'
 
 export default {
   name: "App",
   components: {
     Navbar
+  },
+  setup() {
+
+    // Load the project requests on app load. Prevents any duping
+    const store = useStore();
+    store.dispatch('readProjects');
+
   }
 };
 </script>
