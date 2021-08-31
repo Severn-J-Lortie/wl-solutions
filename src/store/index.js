@@ -13,7 +13,8 @@ export default createStore({
       descriptionTextarea: ''
     },
     projects: [
-    ]
+    ],
+    mobileNavOn: false
   },
   mutations: {
     setServiceDropdown(state, value) {
@@ -35,7 +36,7 @@ export default createStore({
       state.projects.push(project);
     },
     removeProject(state, index) {
-      state.projects.splice(index,1);
+      state.projects.splice(index, 1);
     },
     setDescriptionTextarea(state, value) {
       state.form.descriptionTextarea = value;
@@ -43,8 +44,11 @@ export default createStore({
     setHasSubmittedForm(state, value) {
       state.hasSubmittedForm = value;
     },
-    setProjectAcceptedStatus(state,{index, value}) {
+    setProjectAcceptedStatus(state, { index, value }) {
       state.projects[index].accepted = value;
+    },
+    setMobileNavOn(state, value) {
+      state.mobileNavOn = value;
     }
   },
   getters: {
@@ -82,7 +86,7 @@ export default createStore({
       commit('addProject', project);
 
     },
-    async readProjects({commit}) {
+    async readProjects({ commit }) {
 
       // Create a query that orders newer projects first
       const orderQuery = query(collection(db, 'projects'), orderBy('submissionTime', 'desc'));
@@ -105,19 +109,19 @@ export default createStore({
 
       })
     },
-    async updateProjectAcceptedStatus({ commit, getters }, {id, status}) {
+    async updateProjectAcceptedStatus({ commit, getters }, { id, status }) {
 
       // Update the projects accepted field using the id
       const projectRef = doc(db, 'projects', id);
-      await setDoc(projectRef, {accepted: status}, {merge: true});
+      await setDoc(projectRef, { accepted: status }, { merge: true });
 
       // Update the store to reflect this change. 
       // Find the index of the project
       const projectIndex = getters.getProjectById(id);
-      commit('setProjectAcceptedStatus', {index: projectIndex, value: status});
-     
+      commit('setProjectAcceptedStatus', { index: projectIndex, value: status });
+
     },
-    async deleteProject({commit, getters}, id) {
+    async deleteProject({ commit, getters }, id) {
 
       // Get the doc
       const projectRef = doc(db, 'projects', id);
