@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-centered">
+  <div class="columns is-centered nav-margin">
     <div
       class="
         column
@@ -17,6 +17,9 @@ export default {};
 </script>
 
 <style scoped>
+.nav-margin{
+  padding-top:32px;
+}
 .has-max-width {
   max-width: 1000px; 
 }

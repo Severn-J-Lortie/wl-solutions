@@ -5,9 +5,9 @@ import { getFirestore } from "firebase/firestore"
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const firebaseApp = initializeApp({
-  apiKey: 'AIzaSyA-fd4zYwiLBWToynh6Y9mZlDcWqcnLGjY',
-  authDomain: 'wl-solutions.firebaseapp.com',
-  projectId: 'wl-solutions'
+  apiKey: process.env.APIKEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
 });
 
 const db = getFirestore(firebaseApp);

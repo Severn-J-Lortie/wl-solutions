@@ -4,22 +4,15 @@ import router from './router'
 
 // Font awesome 
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // Icons: Regular
-import { faHandshake } from '@fortawesome/free-regular-svg-icons'
-import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons'
-import { faMoneyBillAlt } from '@fortawesome/free-regular-svg-icons'
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons'
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { faWindowClose  } from '@fortawesome/free-regular-svg-icons'
+import { faHandshake, faWindowClose, faEnvelope, faCheckCircle, faMoneyBillAlt, faCalendarCheck,  } from '@fortawesome/free-regular-svg-icons'
+
 
 // Icons: Brand
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import store from './store'
 
 library.add(faHandshake);
@@ -37,7 +30,7 @@ library.add(faWindowClose);
 require('./assets/lib/bulma.css')
 
 createApp(App).use(store)
-.component("font-awesome-icon", FontAwesomeIcon)
-.use(router)
-.mount('#app')
+    .component("font-awesome-icon", FontAwesomeIcon)
+    .use(router)
+    .mount('#app')
 

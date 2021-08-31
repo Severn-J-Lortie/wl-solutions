@@ -17,13 +17,15 @@
             eveniet qui!
           </p>
 
-          <nav class="level is-mobile">
+          <div class="level is-mobile">
             <div class="level-item has-text-centered">
               <div>
                 <p class="heading">Professional</p>
                 <p>
                   <span class="icon is-large">
-                    <font-awesome-icon :icon="['far','handshake']"></font-awesome-icon>
+                    <font-awesome-icon
+                      :icon="['far', 'handshake']"
+                    ></font-awesome-icon>
                   </span>
                 </p>
               </div>
@@ -33,7 +35,9 @@
               <div>
                 <p class="heading">Quick</p>
                 <span class="icon is-large">
-                  <font-awesome-icon :icon="['far','calendar-check']"></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['far', 'calendar-check']"
+                  ></font-awesome-icon>
                 </span>
               </div>
             </div>
@@ -42,15 +46,17 @@
               <div>
                 <p class="heading">Cost effective</p>
                 <span class="icon is-large">
-                   <font-awesome-icon :icon="['far','money-bill-alt']"></font-awesome-icon>
+                  <font-awesome-icon
+                    :icon="['far', 'money-bill-alt']"
+                  ></font-awesome-icon>
                 </span>
               </div>
             </div>
-          </nav>
+          </div>
 
-
-          <router-link to="/services" class="button is-primary mt-2">Choose a service</router-link>
-
+          <router-link to="/services" class="button is-primary mt-2"
+            >Choose a service</router-link
+          >
         </div>
       </div>
     </card>
@@ -62,7 +68,7 @@ import Card from "../Card";
 
 export default {
   components: {
-    Card
+    Card,
   },
 };
 </script>
@@ -70,5 +76,17 @@ export default {
 <style scoped>
 .has-negative-margin {
   margin-top: -64px;
+}
+@media (max-width: 400px) {
+.heading{
+    font-size:.6rem;
+  }
+  .icon{
+    width:40px;
+    height:40px;
+  }
+  .level-item{
+    padding-bottom: 1em;
+  }
 }
 </style>

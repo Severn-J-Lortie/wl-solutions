@@ -70,6 +70,7 @@ export default {
 }
 .content-container {
   position: relative;
+  height: 100%;
 }
 .background-blob {
   display: none;
